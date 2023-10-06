@@ -68,6 +68,11 @@ DEFAULT
   position: relative;
 }
 
+
+.tw-muted {
+  color: #8A8A8A;
+}
+
 /*
 NAVBAR
 */
@@ -79,6 +84,7 @@ NAVBAR
   height: 65px;
   position: sticky;
   background-color: #fff;
+  z-index: 111111111111;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
@@ -184,14 +190,140 @@ CARD-LAYOUT
 }
 
 .form-filter {
-  width: 240px;
-  height: 45px;
+  width: 320px;
+  height: 40px;
   position: relative;
+}
+
+.form-filter small {
+  top: 50%;
+  left: 4%;
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+.has-icon-on-left .filter-input {
+  padding-left: 30px;
 }
 
 .filter-input {
   outline: none;
   width: 100%;
   height: 100%;
+  font-size: 15px;
+  font-family: 'Roboto-Light';
   border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: 0.15s ease;
+}
+
+.filter-input:focus {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/*
+TEMPLATE-ITEM
+*/
+
+.template-item,
+.template-add {
+  width: 47%;
+  height: 200px;
+  position: relative;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  margin-bottom: 1rem;
+}
+
+.template-add {
+  background: transparent;
+  border: 2px dashed rgba(204, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.template-add:hover .add {
+  color: rgba(204, 0, 0, 0.5);
+}
+
+.template-add .add {
+  color: #cc0000;
+  font-family: 'Roboto-Regular';
+}
+
+.template-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 10px;
+}
+
+.template-cover {
+  width: 40%;
+  height: 80%;
+  position: relative;
+}
+
+.template-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.template-info {
+  width: 60%;
+  position: relative;
+}
+
+.range {
+  padding: 0.2rem 0.5rem;
+  display: block;
+  margin: 0.5rem 0 0;
+  color: #cc0000;
+  border: solid 1px rgba(204, 0, 0, 0.1);
+}
+
+.ratings small {
+  font-size: 12px;
+  color: rgba(204, 0, 0, 0.5);
+}
+
+.template-info .name {
+  display: block;
+}
+
+
+.template-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0.8rem;
+}
+
+.template-actions .btn-action {
+  width: 35px;
+  height: 35px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.template-actions .btn-action:has(.bi-trash) {
+  color: #fdfdfd;
+  border-color: transparent;
+  background-color: rgba(204, 0, 0, 0.5);
+}
+
+
+.template-actions .btn-action:hover {
+  opacity: 0.5;
 }
