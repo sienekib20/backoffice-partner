@@ -138,7 +138,7 @@ NAVBAR
 .spn-nav-item.menu,
 .nav-link small:not(.text) {
   width: 35px;
-  height: 30px;
+  height: 35px;
   aspect-ratio: 1/1;
   border-radius: 50%;
   display: flex;
@@ -181,7 +181,7 @@ LOADER
   justify-content: center;
   pointer-events: none;
   z-index: 11111111111111111111;
-  /*background: rgba(0, 0, 0, 0.01);*/
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .loader span {
@@ -535,6 +535,10 @@ FORM
   background-color: #fff;
 }
 
+.spn-form-row:has(.mh) {
+  align-items: end;
+}
+
 .mh {
   width: 25%;
   min-width: 25%;
@@ -542,7 +546,10 @@ FORM
 }
 
 .spn-form-btn {
-  width: 50%;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .form-input {
@@ -568,7 +575,7 @@ FORM
 }
 
 .spn-form-item:has(label) {
-  height: 180px;
+  /*height: 180px;*/
   border: dashed 1px rgba(204, 0, 0, 0.5);
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -625,6 +632,46 @@ label.form-label:hover {
   width: 30%;
   background-color: #aaa;
 
+}
+
+.form-label span {
+  display: block;
+}
+
+.form-label:has(img) {
+  padding: 0;
+}
+
+.form-label.active span {
+  display: none;
+}
+/*
+.form-label.active:hover span {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  display: block;
+  font-family: 'Roboto-Light';
+  transform: translateY(-50%);
+  z-index: 11111;
+  color: #fff;
+  background-color: #cc0000;
+}
+*/
+.form-label.active img {
+  display: block;
+}
+
+.form-label img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
+  display: none;
 }
 
 option:hover {

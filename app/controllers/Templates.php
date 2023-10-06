@@ -19,6 +19,8 @@ class Templates
         try {
 
             if (request()->methodIs('POST')) {
+
+                var_dump(request());exit;
                 $structure = Management::createFolderStructure(request()->temp_name);
 
                 $request = Presets::breakArray(request()->all(), 0, 8);

@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/assets/css/component.css?v=" <?=time() ?>>
   <link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
   <script src="/assets/js/jquery-3.3.1.min.js"></script>
+  <script src="/assets/js/image/load_replace.js"></script>
   <title>
     <?='Partner'?>
   </title>
@@ -31,17 +32,6 @@
     <div class="card-section-contain">
       <div class="spn-container">
         <form action="/templates/upload" method="POST" class="spn-form">
-          <div class="spn-form-row">
-            <div class="spn-form-btn" >
-              <button class="form-btn">adicionar</button>
-              <button type="reset" class="form-btn">repôr</button>
-            </div>
-            <div class="spn-form-item mh">
-              <input type="file" id="tcover" name="temp_cover" accept="image/*" hidden>
-              <label for="tcover" class="form-label">+ Carregar capa</label>
-            </div>
-          </div>
-
           <div class="spn-form-row">
             <div class="spn-form-item">
               <input type="text" name="temp_title" class="form-input" autocomplete="off" required>
@@ -74,14 +64,14 @@
           <div class="spn-form-row">
             <div class="spn-form-item">
               <select name="temp_payment_status" class="form-input">
-                <option value="P">Pago</option>
                 <option value="G">Grátis</option>
+                <option value="P">Pago</option>
               </select>
               <span class="form-label">Status</span>
             </div>
 
             <div class="spn-form-item">
-              <input type="text" name="temp_price" class="form-input" autocomplete="off" required>
+              <input type="text" name="temp_price" class="form-input" autocomplete="off" disabled required>
               <span class="form-label">Valor</span>
             </div>
 
@@ -89,8 +79,8 @@
 
           <div class="spn-form-row">
             <div class="spn-form-item">
-              <input type="file" id="tasset" name="temp_assets" accept="image/*" multiple hidden>
-              <label for="tasset" class="form-label">+ Carregar assets imagem</label>
+              <input type="file" id="tassetI" name="temp_assets" accept="image/*" multiple hidden>
+              <label for="tassetI" class="form-label">+ Carregar assets imagem</label>
             </div>
 
             <div class="spn-form-item">
@@ -102,8 +92,22 @@
           <div class="spn-form-row">
             <div class=""></div>
             <div class="spn-form-item">
-              <input type="file" id="tasset" name="temp_assets" accept=".css,.js" multiple hidden>
-              <label for="tasset" class="form-label">+ Carregar assets css/js</label>
+              <input type="file" id="tassetCj" name="temp_assets" accept=".css,.js" multiple hidden>
+              <label for="tassetCj" class="form-label">+ Carregar assets css/js</label>
+            </div>
+          </div>
+
+          <div class="spn-form-row">
+            <div class="spn-form-btn">
+              <button class="form-btn">adicionar</button>
+              <button type="reset" class="form-btn">repôr</button>
+            </div>
+            <div class="spn-form-item mh">
+              <input type="file" id="tcover" name="temp_cover" accept="image/*" hidden>
+              <label for="tcover" class="form-label">
+                <span>+ Carregar capa</span>
+                <img src="">
+              </label>
             </div>
           </div>
 
