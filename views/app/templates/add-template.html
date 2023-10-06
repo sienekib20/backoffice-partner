@@ -32,9 +32,34 @@
       <div class="spn-container">
         <form action="" class="spn-form">
           <div class="spn-form-row">
+            <div class="spn-form-btn" >
+              <button class="form-btn">adicionar</button>
+              <button type="reset" class="form-btn">repôr</button>
+            </div>
+            <div class="spn-form-item mh">
+              <input type="file" id="tcover" name="temp_cover" accept="image/*" hidden>
+              <label for="tcover" class="form-label">+ Carregar capa</label>
+            </div>
+          </div>
+
+          <div class="spn-form-row">
             <div class="spn-form-item">
               <input type="text" name="temp_title" class="form-input" autocomplete="off" required>
               <span class="form-label">Título</span>
+            </div>
+            <div class="spn-form-item">
+              <input type="text" name="temp_description" class="form-input" autocomplete="off" required>
+              <span class="form-label">Descrição</span>
+            </div>
+          </div>
+
+          <div class="spn-form-row">
+            <div class="spn-form-item">
+              <select name="temp_payment_status" class="form-input">
+                <option value="Y">Permitir editar</option>
+                <option value="N">Não Permitir</option>
+              </select>
+              <span class="form-label">Editar</span>
             </div>
             <div class="spn-form-item">
               <select name="temp_type" class="form-input">
@@ -64,33 +89,22 @@
 
           <div class="spn-form-row">
             <div class="spn-form-item">
-              <select name="temp_payment_status" class="form-input">
-                <option value="Y">Permitir editar</option>
-                <option value="N">Não Permitir</option>
-              </select>
-              <span class="form-label">Editar</span>
+              <input type="file" id="tasset" name="temp_assets" accept="image/*" multiple hidden>
+              <label for="tasset" class="form-label">+ Carregar assets imagem</label>
             </div>
 
             <div class="spn-form-item">
-              <input type="text" name="temp_description" class="form-input" autocomplete="off" required>
-              <span class="form-label">Descrição</span>
+              <input type="file" id="tpage" name="temp_assets" accept=".html,.htm" multiple hidden>
+              <label for="tpage" class="form-label">+ Carregar páginas</label>
             </div>
           </div>
 
           <div class="spn-form-row">
+            <div class=""></div>
             <div class="spn-form-item">
-              <input type="file" id="asset" name="temp_assets" accept=".css,.js,image/png,image/jpg,image/jpeg" multiple hidden>
-              <label id="asset" class="form-label">+ Carregar assets</label>
+              <input type="file" id="tasset" name="temp_assets" accept=".css,.js" multiple hidden>
+              <label for="tasset" class="form-label">+ Carregar assets css/js</label>
             </div>
-
-            <div class="spn-form-item">
-              <input type="file" id="asset" name="temp_assets" accept=".html,.htm" multiple hidden>
-              <label id="asset" class="form-label">+ Carregar páginas</label>
-            </div>
-          </div>
-
-          <div class="spn-form-row">
-            <button class="form-btn">adicionar</button>
           </div>
 
         </form>

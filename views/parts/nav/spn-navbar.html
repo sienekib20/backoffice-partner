@@ -54,13 +54,13 @@
     </div>
 
     <div class="mnav-item <?= request()->path() == 'templates' ? 'active' : '' ?>">
-      <a href="/templates" class="mnav-link">
+      <a href="/templates/show" class="mnav-link">
         <span>Templates</span>
       </a>
     </div>
 
-    <div class="mnav-item <?= request()->path() == 'templates/create' ? 'active' : '' ?>">
-      <a href="" class="mnav-link">
+    <div class="mnav-item <?= request()->path() == 'templates/add' ? 'active' : '' ?>">
+      <a href="/templates/add" class="mnav-link">
         <span class="bi-plus">Adcionar</span>
       </a>
     </div>
