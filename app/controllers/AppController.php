@@ -8,7 +8,7 @@ class AppController
 {
     public function index()
     {
-        return view('app.templates.create-template');
+        return view('app.index');
     }
 
     public function update($request)

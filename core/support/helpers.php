@@ -67,12 +67,22 @@ if (!function_exists('database')) :
 
 endif;
 
-if (!function_exists('view_part')) :
+if (!function_exists('parts')) :
 
-    function view_part($part)
+    function parts($part)
     {
+        $parts = view_path() . "parts/" . str_replace('.', '/', $part) . ".html";
 
-        include view_path() . "parts/" . str_replace('.', '/', $part) . ".html";
+        try {
+            if (!file_exists($parts)) {
+
+                throw new Exception("Arquivo {$part} não encontrado", 1);
+            }
+
+            include $parts;
+        } catch (Exception $ex) {
+            repport('View Error', $ex, 404);
+        }
     }
 
 endif;
