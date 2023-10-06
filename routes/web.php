@@ -9,7 +9,7 @@ $routes = new Route();
 
 $routes->addRoute('/', [AppController::class, 'index']);
 $routes->addRoute('/templates/add', [AppController::class, 'create_template']);
-$routes->addRoute('/templates/create', [AppController::class, 'create_template']);
+$routes->addRoute('/templates/upload', [Templates::class, 'upload_template']);
 
 $routes->addRoute('/user/[0-9]+', [AppController::class, 'update']);
 

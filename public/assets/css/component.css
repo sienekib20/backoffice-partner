@@ -595,7 +595,7 @@ label.form-label:hover {
 }
 
 .form-input:valid+.form-label,
-.spn-form-item:focus-within .form-label {
+.form-input:focus+.form-label {
   top: -20%;
 }
 
@@ -628,6 +628,6 @@ label.form-label:hover {
 }
 
 option:hover {
-  background-color: #cc0000 !important; /* Cor de fundo das opções */
+  background-color: #cc0000 !important;
+  /* Cor de fundo das opções */
 }
-
