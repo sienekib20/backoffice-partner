@@ -11,6 +11,11 @@ class AppController
         return view('app.index');
     }
 
+    public function create_template()
+    {
+        return view('app.templates.add-template');
+    }
+
     public function update($request)
     {
     }

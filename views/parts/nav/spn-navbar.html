@@ -1,4 +1,6 @@
 <nav class="spn-navbar">
+  <?= parts('over.overlay') ?>
+
   <div class="spn-container">
     <div class="spn-app">
       <small class="bi-code-slash"></small>
@@ -33,3 +35,72 @@
 
   </div>
 </nav>
+
+
+<div class="spn-mnav">
+
+  <div class="loader">
+    <span class="bi-code-slash"></span>
+  </div>
+
+  <div class="mnav-header">
+    <span class="bi-x">Fechar</span>
+  </div>
+  <div class="mnav-items">
+    <div class="mnav-item <?= request()->path() == '' ? 'active' : '' ?>">
+      <a href="/" class="mnav-link">
+        <span>Inicio</span>
+      </a>
+    </div>
+
+    <div class="mnav-item <?= request()->path() == 'templates' ? 'active' : '' ?>">
+      <a href="/templates" class="mnav-link">
+        <span>Templates</span>
+      </a>
+    </div>
+
+    <div class="mnav-item <?= request()->path() == 'templates/create' ? 'active' : '' ?>">
+      <a href="" class="mnav-link">
+        <span class="bi-plus">Adcionar</span>
+      </a>
+    </div>
+
+    <div class="mnav-item <?= request()->path() == 'partners' ? 'active' : '' ?>">
+      <a href="" class="mnav-link">
+        <span>Parceiros</span>
+      </a>
+    </div>
+
+    <div class="mnav-item">
+      <a href="" class="mnav-link">
+        <span>Sair</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+  try {
+    $('.spn-nav-item.menu').click(() => {
+      $('body').css('overflow', 'hidden');
+      $('.spn-mnav').addClass('active');
+      $('.spn-overlay').addClass('active');
+    });
+
+    $('.mnav-header').click(() => {
+      $('body').css('overflow', 'auto');
+      $('.spn-mnav').removeClass('active');
+      $('.spn-overlay').removeClass('active');
+    });
+
+
+    setTimeout(() => {
+      $('.loader').addClass('hide');
+    }, 500);
+
+  } catch (error) {
+    console.error(error);
+  }
+</script>

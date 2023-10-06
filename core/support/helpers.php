@@ -40,6 +40,21 @@ if (!function_exists('response')) :
 
 endif;
 
+if (!function_exists('request')) :
+
+    function request()
+    {
+        static $instance = null;
+
+        if (is_null($instance)) {
+
+            $instance = (new Request());
+        }
+
+        return $instance;
+    }
+endif;
+
 if (!function_exists('view_path')) :
 
     function view_path()

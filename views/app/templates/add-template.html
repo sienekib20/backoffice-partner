@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/component.css?v=" <?=time() ?>>
+  <link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
+  <script src="/assets/js/jquery-3.3.1.min.js"></script>
+  <title>
+    <?='Partner'?>
+  </title>
+</head>
+
+<body>
+
+  <div class="spn-wrapper">
+    <?= parts('nav.spn-navbar') ?>
+
+    <div class="card-section">
+      <div class="card-section-header">
+        <div class="spn-container">
+          <div class="title">
+            <span class="default">Adcionar Template</span>
+            <small class="tw-muted">Carrega os dados do teu template</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-section-contain">
+      <div class="spn-container">
+        <form action="" class="spn-form">
+          <div class="spn-form-row">
+            <div class="spn-form-item">
+              <span class="form-label">Título</span>
+              <input type="text" name="temp_title" class="form-input" required>
+            </div>
+            <div class="spn-form-item">
+              <span class="form-label">Tipo template</span>
+              <select name="temp_type" class="form-input">
+                <option value=""></option>
+                <option value="Landing Page">Landing Page</option>
+                <option value="Dashboard">Dashboard</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="spn-form-row">
+            <div class="spn-form-item">
+              <span class="form-label">Status</span>
+              <select name="temp_payment_status" class="form-input">
+                <option value=""></option>
+                <option value="P">Pago</option>
+                <option value="G">Grátis</option>
+              </select>
+            </div>
+
+            <div class="spn-form-item">
+              <span class="form-label">Valor</span>
+              <input type="text" name="temp_price" class="form-input" required>
+            </div>
+
+          </div>
+
+          <div class="spn-form-row">
+            <div class="spn-form-item">
+              <span class="form-label">Editar</span>
+              <select name="temp_payment_status" class="form-input">
+                <option value=""></option>
+                <option value="Y">Permitir editar</option>
+                <option value="N">Não Permitir</option>
+              </select>
+            </div>
+
+            <div class="spn-form-item">
+              <span class="form-label">Descrição</span>
+              <input type="text" name="temp_description" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="spn-form-row">
+            <div class="spn-form-item">
+              <label id="asset" class="form-label">Carregar assets</label>
+              <input type="file" id="asset" name="temp_assets" accept=".css,.js,image/png,image/jpg,image/jpeg" hidden>
+            </div>
+
+            <div class="spn-form-item">
+              <label id="asset" class="form-label">Carregar páginas</label>
+              <input type="file" id="asset" name="temp_assets" accept=".html,.htm" hidden>
+            </div>
+          </div>
+
+          <div class="spn-form-row">
+            <button class="form-btn">adicionar</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+
+  </div> <!--/.sp-wrapper-->
+
+</body>
+
+</html>
