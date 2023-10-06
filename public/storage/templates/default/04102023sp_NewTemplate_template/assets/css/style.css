@@ -1,0 +1,17 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 45px;
+    line-height: 25px;
+    background: #333;
+    color: #fff;
+    margin-top: 1rem;
+  }

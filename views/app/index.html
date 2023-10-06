@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css?v=" <?=time() ?>>
+    <link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
+    <title>
+        <?='Partner'?>
+    </title>
+</head>
+
+<body>
+    <div class="sp-wrapper">
+        <?= view_part('nav.navbar') ?>
+        <div class="sp-main-content">
+            <div class="sp-container">
+                <?= view_part('nav.sidebar') ?>
+                <div class="sp-data-page">
+                    <div class="sp-card">
+                        <div class="sp-card-title">
+                            <span class="title">Create Template</span>
+                            <smal class="text-muted"></smal>
+                        </div>
+                        <div class="sp-card-content">
+                            <div class="sp-create-template">
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    <div class="sp-form-section active">
+                                        <div class="sp-section-top">
+                                            <div class="title">
+                                                <span class="bold">Template</span>
+                                                <small class="text-muted">Basic template information</small>
+                                            </div>
+                                            <span class="bi-chevron-down"></span>
+                                        </div>
+                                        <div class="sp-section-contain">
+                                            <div class="sp-row">
+                                                <div class="sp-form-contain">
+                                                    <div class="sp-form-fields">
+                                                        <input type="text" name="titulo" class="sp-form-field"
+                                                            placeholder="Template name" required>
+                                                        <small class="sp-error"></small>
+                                                    </div>
+                                                </div>
+
+                                                <div class="sp-form-contain">
+                                                    <div class="sp-form-fields">
+                                                        <input type="text" name="titulo" class="sp-form-field"
+                                                            placeholder="Author" required>
+                                                        <small class="sp-error"></small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="sp-row">
+                                                <div class="sp-form-contain">
+                                                    <div class="sp-form-fields">
+                                                        <input type="text" name="titulo" class="sp-form-field"
+                                                            placeholder="2023-10-01" required>
+                                                        <small class="sp-error"></small>
+                                                    </div>
+                                                </div>
+
+                                                <div class="sp-form-contain">
+                                                    <div class="sp-form-fields">
+                                                        <input type="text" name="titulo" class="sp-form-field"
+                                                            placeholder="Description" required>
+                                                        <small class="sp-error"></small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!--/.sp-form-section-->
+
+                                    <div class="sp-form-section active">
+                                        <div class="sp-section-top">
+                                            <div class="title">
+                                                <span class="bold">Assets</span>
+                                                <small class="text-muted">All template assets</small>
+                                            </div>
+                                            <button class="sp-btn"><span class="bi-plus"></span> file</button>
+                                            <button class="sp-btn"><span class="bi-plus"></span> image</button>
+                                            <span class="bi-chevron-down"></span>
+                                        </div>
+                                        <div class="sp-section-contain">
+                                            <div class="sp-row">
+                                                <div class="sp-form-contain">
+                                                    <div class="sp-form-fields">
+                                                        <div class="label sp-form-field">
+                                                            <small class="bi-three-dots-vertical"></small>
+                                                            <label for="file-1"><small>Load asset file</small></label>
+                                                            <span class="bi-x"></span>
+                                                        </div>
+                                                        <input type="file" id="file-1" name="asset" accept="css/js/*"
+                                                            hidden>
+                                                            <small class="sp-error"></small>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="sp-row">
+                                                <div class="sp-form-contain">
+                                                    <div class="sp-form-fields">
+                                                        <div class="label sp-form-field">
+                                                            <small class="bi-three-dots-vertical"></small>
+                                                            <label for="file-1"><small>Load asset image</small></label>
+                                                            <span class="bi-x"></span>
+                                                        </div>
+                                                        <input type="file" id="file-1" name="asset" accept="image/*"
+                                                        hidden>
+                                                        <small class="sp-error"></small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div> <!--/.sp-form-section-->
+
+                                    <div class="sp-form-section active">
+                                        <div class="sp-section-top">
+                                            <div class="title">
+                                                <span class="bold">Pages</span>
+                                                <small class="text-muted">Load pages</small>
+                                            </div>
+                                            <button class="sp-btn"><span class="bi-plus"></span> page</button>
+                                            <span class="bi-chevron-down"></span>
+                                        </div>
+                                        <div class="sp-section-contain">
+                                            <div class="sp-row">
+                                                <div class="sp-form-contain">
+                                                    <div class="sp-form-fields">
+                                                        <div class="field">
+                                                            <span class="bi-x"></span>
+                                                            <div class="contain-field">
+                                                                <input type="text" name="titulo" class="sp-form-field"
+                                                                    placeholder="Page name" required>
+                                                                <textarea name="" id="" placeholder="Page content" resize="off"
+                                                                    class="sp-form-field"></textarea>
+                                                            </div>    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!--/.sp-form-section-->
+
+                                </form> <!--/.form-create-->
+
+                            </div>
+                        </div>
+                    </div> <!--/.sp-card-->
+
+                </div> <!--/.sp-data-page-->
+
+            </div> <!--/.sp-container-->
+
+        </div> <!--/.sp-main-content-->
+
+    </div> <!--/.sp-wrapper-->
+
+</body>
+
+</html>
+
