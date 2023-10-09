@@ -6,6 +6,7 @@ use core\database\DatabaseHelpers as Database;
 use Exception;
 use core\support\DirectoryManagement as Management;
 use core\support\Presets;
+use core\support\Struct;
 
 class Templates
 {
@@ -20,48 +21,19 @@ class Templates
 
             if (request()->methodIs('POST')) {
 
-                var_dump(request());exit;
-                $structure = Management::createFolderStructure(request()->temp_name);
-
-                $request = Presets::breakArray(request()->all(), 0, 8);
-
-                $request['temp_reference']           = $structure['temp_name'];
-                $request['temp_editable']       = (bool) $request['temp_editable'];
-                $request['temp_payment_status'] = (int) $request['temp_payment_status'];
-                $request['temp_price']          = Presets::formatNumber($request['temp_price'], 2);
-
-                unset($request['temp_date']);
+                $request = (object) request()->all();
 
                 $files = request()->file();
-                $countError = 1;
 
+                $reference = Struct::create_structure($request->temp_title, $files);
 
-                foreach ($files as $key => $file) {
+                if ($reference) {
 
-                    if ($key == 'template_assets' || $key == 'template_images') {
+                    $preco = Presets::formatNumber($request->temp_price ?? '0', 2);
 
-                        foreach ($file['type'] as $index => $type) {
-
-                            $countError = Management::mu_file($file, $index, $structure, $type);
-                        }
-                    } else if ($key == 'template_pages') {
-
-                        foreach ($file['name'] as $index => $name) {
-                            if (explode('.', $name)[0] != 'index') {
-
-                                move_uploaded_file($file['tmp_name'][$index], $structure['pages'] . $file['name'][$index]);
-                                $countError = 0;
-                            } else {
-
-                                move_uploaded_file($file['tmp_name'][$index], $structure['temp_dir'] . $file['name'][$index]);
-                                $countError = 0;
-                            }
-                        }
-                    }
-                }
-
-                if ($countError == 0) {
-                    Database::insertIn('templates', $request);
+                    database('templates')->insert([
+                        'titulo' => $request->temp_title, 'tipo_template_id' => database()->select('select tipo_template_id from tipo_templates where tipo_template = ?', [$request->temp_type])[0], 'referencia' => $reference, 'descricao' => $request->temp_description, 'autor' => 'Sílica', 'editar' => $request->temp_editable, 'estado_pagamento' => $request->temp_payment_status, 'preco' => $preco
+                    ]);
 
                     response()->setHttpResponseCode(200);
                     return header('Location: /template/create');

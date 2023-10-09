@@ -40,6 +40,6 @@ $('document').ready(function () {
 function count(numFiles, e, type, base) {
     var label = e.target.nextElementSibling;
     var texto = label.innerText
-    label.innerText = texto == base ? numFiles + ' ' + type + ' Carregada(s)' : '';
+    label.innerText = texto == base ? numFiles + ' ' + type + ' Carregada(s)' : numFiles + ' ' + type + ' Carregada(s)';
 
 }

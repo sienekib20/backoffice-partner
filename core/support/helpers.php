@@ -1,9 +1,10 @@
 <?php
 
-use core\classes\database\Database;
+use core\database\Database;
 use core\classes\Request;
 use core\classes\Response;
 use core\database\default\Connection;
+use core\database\Seeders;
 use core\templates\View;
 
 if (!function_exists('root')) :
@@ -64,6 +65,40 @@ if (!function_exists('view_path')) :
 
 endif;
 
+if (!function_exists('config_dir')) :
+
+    function config_dir()
+    {
+        return root() . '/core/config';
+    }
+
+endif;
+
+if (!function_exists('get_file')) :
+
+    function get_file($file)
+    {
+        $files = [
+            'htaccess'      => config_dir() . '/.htaccess',
+            'core'          => config_dir() . '/core.php',
+            'controller'    => config_dir() . '/controller.php',
+            'index'         => config_dir() . '/index.php',
+            'render'        => config_dir() . '/render.php',
+            'routes'        => config_dir() . '/routes.php',
+        ];
+
+        foreach ($files as $key => $value) {
+            if ($key == $file) {
+                return $value;
+            }
+        }
+
+        return null;
+    }
+
+endif;
+
+
 if (!function_exists('view')) :
 
     function view($view, $params = [])
@@ -73,14 +108,46 @@ if (!function_exists('view')) :
 
 endif;
 
-if (!function_exists('database')) :
+if (!function_exists('upload')) :
 
-    function database($table)
+    function upload($from, $to)
     {
-        return (new Database($table));
+        return move_uploaded_file($from, $to);
     }
 
 endif;
+
+if (!function_exists('database')) :
+
+    function database($table = null)
+    {
+        static $instance = null;
+
+        if (is_null($instance)) {
+            $instance = (new Database($table));
+        }
+
+        return $instance;
+    }
+
+endif;
+
+
+if (!function_exists('seeders')) :
+
+    function seeders()
+    {
+        static $instance = null;
+
+        if (is_null($instance)) {
+            $instance = (new Seeders());
+        }
+
+        return $instance;
+    }
+
+endif;
+
 
 if (!function_exists('parts')) :
 
