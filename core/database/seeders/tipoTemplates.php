@@ -2,11 +2,13 @@
 
 namespace core\database\seeders;
 
+use core\database\Database;
+
 class tipoTemplates
 {
     public function insert()
     {
-        database('tipo_templates')->insert([
+        Database::table('tipo_templates')->insert([
             [
                 'tipo_template' => 'Landing Page'
             ],

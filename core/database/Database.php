@@ -14,11 +14,16 @@ class Database
 
     private static $where;
 
-    public function __construct($table = null)
+    public function __construct()
     {
         self::$connection = connection();
+    }
 
+    public static function table($table = null)
+    {
         self::$table_name = $table;
+
+        return database();
     }
 
     public function where($column, $value)
@@ -40,6 +45,8 @@ class Database
             $stmt->bindValue(1, array_values(self::$where)[0]);
 
             $stmt->execute();
+
+
 
             return self::$connection->commit();
 
@@ -69,6 +76,8 @@ class Database
             $stmt->bindValue(count($values) + 1, array_values(self::$where)[0]);
 
             $stmt->execute();
+
+
 
             return self::$connection->commit();
 
@@ -100,6 +109,13 @@ class Database
         return $this->executeInsert($data);
     }
 
+    public function lastId()
+    {
+        $stmt = self::$connection->query("SELECT LAST_INSERT_ID()");
+        $lastId = $stmt->fetchColumn();
+        return $lastId;
+    }
+
     private function executeInsert($data = [])
     {
         try {
@@ -112,13 +128,15 @@ class Database
             $stmt = self::$connection->prepare($query);
 
             for ($i = 1; $i <= count($values = array_values($data)); $i++) {
-
                 $stmt->bindValue($i, $values[$i - 1]);
             }
 
+
             $stmt->execute();
 
-            return self::$connection->commit();
+            self::$connection->commit();
+
+            return $this;
 
             //
         } catch (PDOException $ex) {
@@ -138,6 +156,8 @@ class Database
 
             is_null(self::$where) ? $stmt->execute() : $stmt->execute(self::$where);
 
+
+
             return $stmt->fetchAll();
 
             //
@@ -147,13 +167,15 @@ class Database
         }
     }
 
-    public function select($query, $bind = [])
+    public static function select($query, $bind = [])
     {
         try {
 
             $stmt = self::$connection->prepare($query);
 
             $stmt->execute($bind);
+
+
 
             return $stmt->fetchAll();
 

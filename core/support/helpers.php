@@ -25,6 +25,15 @@ if (!function_exists('storage')) :
 
 endif;
 
+if (!function_exists('storage_path')) :
+
+    function storage_path()
+    {
+        return root() . '/public/storage';
+    }
+
+endif;
+
 if (!function_exists('response')) :
 
     function response()
@@ -119,12 +128,12 @@ endif;
 
 if (!function_exists('database')) :
 
-    function database($table = null)
+    function database()
     {
         static $instance = null;
 
         if (is_null($instance)) {
-            $instance = (new Database($table));
+            $instance = (new Database());
         }
 
         return $instance;
