@@ -37,39 +37,33 @@
         <div class="spn-container">
 
           <div class="card-section-row">
-            <?php foreach($templates as $template):  ?>
             <div class="template-item">
-              <div class="template-cover">
-                <img src="<?=storage('img/templates_covers/'.$template->file)?>" alt="">
-              </div>
               <div class="template-info">
-                <span class="name"><?=$template->titulo?></span>
-                <small class="tw-muted">Criado por: <span class="owner"><?=$template->autor?></span> </small>
+                <span class="name">Landing Pages</span>
+                <small class="tw-muted"><span class="owner"></span> </small>
                 <div class="avaluate">
-                  <small class="range"><span class="qtd">00</span> Pessoa(s) Utilizando </small>
-                  <div class="ratings">
-                    <small class="bi-star-fill"></small>
-                    <small class="bi-star-fill"></small>
-                    <small class="bi-star-fill"></small>
-                    <small class="bi-star-fill"></small>
-                    <small class="bi-star-fill"></small>
-                  </div>
-                </div>
-
-                <div class="template-actions">
-                  <a href="/template/edit/<?= $template->template_id ?>" class="btn-action" title="Editar">
-                    <small class="bi-pencil-square"></small>
-                  </a>
-                  <a href="/template/delete/<?= $template->template_id ?>" class="btn-action" title="Remover">
-                    <small class="bi-trash"></small>
-                  </a>
-                  <a href="/nocode/09_10_2023_nocode_testeIt_template" target="_blank" class="btn-action" title="Remover">
-                    <small class="bi-eye"></small>
-                  </a>
+                  <small class="range">Total <span class="qtd">04</span> </small>
                 </div>
               </div>
             </div>
-            <?php endforeach; ?>
+            <div class="template-item">
+              <div class="template-info">
+                <span class="name">Parceiros</span>
+                <small class="tw-muted"><span class="owner"></span> </small>
+                <div class="avaluate">
+                  <small class="range">Total <span class="qtd">00</span> </small>
+                </div>
+              </div>
+            </div>
+            <div class="template-item">
+              <div class="template-info">
+                <span class="name">Templates em uso</span>
+                <small class="tw-muted"><span class="owner"></span> </small>
+                <div class="avaluate">
+                  <small class="range">Total <span class="qtd">01</span> </small>
+                </div>
+              </div>
+            </div>
 
             <a href="/templates/add" class="template-add">
               <div class="add">

@@ -535,6 +535,27 @@ FORM
   background-color: #fff;
 }
 
+.spn-form-item.default {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.spn-form-item .bi-copy {
+  top: 50%;
+  right: 2%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  transform: translateY(-50%);
+  background-color: #f9f9f9;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .spn-form-row:has(.mh) {
   align-items: end;
 }
@@ -615,6 +636,8 @@ label.form-label:hover {
   cursor: pointer;
   font-size: 17px;
   border-radius: 5px;
+  line-height: 45px;
+  text-align: center;
   transition: 0.15s ease-in-out;
   font-family: 'Roboto-Light';
   background-color: #cc0000;
@@ -677,4 +700,212 @@ label.form-label:hover {
 option:hover {
   background-color: #cc0000 !important;
   /* Cor de fundo das opções */
+}
+
+
+
+/*
+AUTH
+*/
+
+.spn-wrapper:has(.spn-contain-auth) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spn-contain-auth {
+  width: 340px;
+  height: 300px;
+  padding: 0.5rem 1rem;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.spn-auth-header {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  padding: 0 0.2rem;
+  color: #fdfdfd;
+  background-color: #cc0000;
+}
+
+.logo + .title {
+  /*font-family: 'Roboto-Regular';*/
+}
+
+
+.auth-item {
+  width: 100%;
+  height: 45px;
+  position: relative;
+}
+
+.auth-item + .auth-item {
+  margin-top: 0.5rem;
+}
+
+.auth-item small {
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translateY(-50%);
+}
+
+.auth-input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  font-family: 'Roboto-Light';
+  padding-left: 26px;
+}
+
+
+button.auth-input {
+  padding: 0;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-color: transparent;
+  background-color: #cc0000;
+}
+
+
+.auth-info {
+  margin-top: 0.5rem;
+}
+
+
+
+
+/*
+Icons
+*/
+.icon-warning {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #ca9566;
+  aspect-ratio: 1/1;
+  color: #fff;
+}
+
+
+.spn-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border-radius: 0.25rem;
+}
+
+
+.minimize {
+  height: 10vh;
+  overflow-y: hidden;
+  margin-bottom: 2rem;
+}
+
+
+
+
+
+/*
+Alerts
+*/
+
+.contain-popup {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.01);
+  z-index: 111111111111;
+  opacity: 0;
+  transition: 0.15s ease;
+  pointer-events: none;
+}
+
+.contain-popup.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup {
+  width: 460px;
+  max-width: 100%;
+  min-height: 100px;
+  padding: 1rem 2rem 2rem;
+  background-color: #fdfdfd;
+  border-radius: 0.25rem;
+  opacity: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup.active {
+  opacity: 1;
+  animation: animate 0.5s ease forwards;
+  transition: 0.2s 0.1s ease;
+}
+
+@keyframes animate {
+  0% {
+    margin-top: -1100rem;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+.popup-header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
+}
+
+.popup-body {
+  /*text-align: justify;*/
+  padding-top: 1rem;
+}
+
+.popup-header .bold {
+  display: block;
+  margin-bottom: -5px;
+  font-family: 'Roboto-Regular';
+}
+
+.popup-header .popup-title + span {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #f9f9ff;
+  border: solid 1px rgba(0, 0, 0, 0.05);
 }

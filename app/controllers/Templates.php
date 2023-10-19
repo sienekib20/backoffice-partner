@@ -12,6 +12,7 @@ class Templates
 {
     public function index()
     {
+
         return view('app.templates.add-template');
     }
 

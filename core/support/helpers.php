@@ -5,6 +5,7 @@ use core\classes\Request;
 use core\classes\Response;
 use core\database\default\Connection;
 use core\database\Seeders;
+use core\support\Session;
 use core\templates\View;
 
 if (!function_exists('root')) :
@@ -20,7 +21,22 @@ if (!function_exists('storage')) :
 
     function storage($path)
     {
+        //return "http://localhost:5000/public/storage/{$path}/";
         return "storage/{$path}/";
+    }
+
+endif;
+
+if (!function_exists('session')) :
+
+    function session()
+    {
+        static $instance = null;
+
+        if ($instance == null) {
+            $instance = new Session();
+        }
+        return $instance;
     }
 
 endif;

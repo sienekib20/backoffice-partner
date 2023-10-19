@@ -16,6 +16,7 @@ class AppController
 
     public function create_template()
     {
+
         return view('app.templates.add-template');
     }
 

@@ -2,6 +2,8 @@
 
 namespace core\classes;
 
+use app\controllers\auth\authentication;
+use core\auth\Authentication as AuthAuthentication;
 use core\support\Check;
 use core\support\Str;
 use Exception;
@@ -26,12 +28,14 @@ class Route
 
             if ($storage == 'nocode') {
 
-                $uri = explode('/',$uri);
+                $uri = explode('/', $uri);
 
                 include root() . '/public/storage/templates/' . end($uri) . '/index.php';
             } else {
 
                 foreach ($routes as $key => $route) {
+
+                    //(new AuthAuthentication())->handle();
 
                     $pattern = Str::generatePatternOf($key);
 
@@ -51,6 +55,19 @@ class Route
 
                         $params =  Str::changeAllParamsIndex(array_values(array_slice($matches, 1)));
 
+
+                        if (!session()->get('__loggedin')) {
+
+
+                            //header('Location: /');
+
+                            //$control = new authentication();
+
+                            //$control->login();
+                            //var_dump();exit;
+
+                            //return;
+                        }
                         return $instatiatedController->$method($params);
                     }
                 }
