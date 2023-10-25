@@ -92,11 +92,6 @@
                   <img src="">
                 </label>
               </div>
-              <div class="spn-form-item">
-                <small>Para começar escreva o titulo do template e clica em gerar nome <br> copia depois esse nome
-                  coloque
-                  no caminho do teu assets antes de exportar as paginas</small>
-              </div>
             </div>
 
             <div class="spn-form-row">
@@ -193,7 +188,8 @@
   document.querySelector('#continue-btn').addEventListener('click', (e) => {
     e.preventDefault();
     const generated = document.querySelector('[name="generated"]').value;
-    if (generated.length == 0) {
+    if (generated.length == 1) {
+
       popup_contain.classList.add('active');
 
       setTimeout(() => {
@@ -202,9 +198,17 @@
         popup_title.innerText = '';
         popup_msg.innerText = 'Precisas gerar uma referência antes de continuar';
         popup_title.innerText = 'Aviso';
+        song_notification(popu_audio);
 
       }, 100);
+      return 0;
     }
+    selector('.minimize').classList.remove('minimize');
     console.log(generated.length);
   });
+
+  function song_notification(alert) {
+    alert.stopped = true;
+    alert.play();
+  }
 </script>

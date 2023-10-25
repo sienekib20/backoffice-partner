@@ -858,12 +858,11 @@ Alerts
   padding: 1rem 2rem 2rem;
   background-color: #fdfdfd;
   border-radius: 0.25rem;
-  opacity: 0;
+  margin-top: -1100rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .popup.active {
-  opacity: 1;
   animation: animate 0.5s ease forwards;
   transition: 0.2s 0.1s ease;
 }
